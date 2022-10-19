@@ -1,19 +1,16 @@
 #include <cstdio>
-#include <algorithm>
-using namespace std;
 
 int main() {
     int n;
     int temp;
-    int a[1000000];
+    int a[1000000][2];
 
     scanf("%d", &n);
     for(int i = 0; i < n; i++)
-        scanf("%d", a + i);
-    sort(a, a + n);
+        scanf("%d %d", &a[i][0], &a[i][1]);
     for(int i = 0; i < n; i++)
     {
-        printf("%d\n", a[i]);
+        printf("%d %d\n", a[i][0], a[i][1]);
     }
     return 0;
 }
