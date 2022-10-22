@@ -1,7 +1,7 @@
 #include <cstdio>
 
 int num = 10;
-int heap[10] = {6, 0, 1, 8, 9, 4, 2, 5, 3, 7};
+int heap[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 int main()
 {
