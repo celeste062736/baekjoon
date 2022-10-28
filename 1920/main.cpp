@@ -1,24 +1,36 @@
 #include <cstdio>
-#include <map>
-using namespace std;
+#include <algorithm>
 
 int main()
 {
-    int n, m,temp;
-    map<int, int> mp;
+    int n, m, temp, flag, left, right, mid;
+    int data[100010];
+
     scanf("%d", &n);
     for(int i = 0; i < n; i++)
-    {
-        scanf("%d", &temp);
-        auto iter = mp.insert(pair<int, int>(temp,1));
-        if(!iter.second)
-            iter.first->second++;
-    }
+        scanf("%d ", data + i);
+    std::sort(data, data + n);
     scanf("%d", &m);
     for(int i = 0; i < m; i++)
     {
         scanf("%d", &temp);
-        printf("%d", mp[temp]);
+        flag = 0;
+        left = 0;
+        right = n - 1;
+        while(left <= right)
+        {
+            mid = (left + right) / 2;
+            if(data[mid] == temp)
+            {
+                flag = 1;
+                break;
+            }
+            else if(data[mid] > temp)
+                right = mid - 1;
+            else
+                left = mid + 1;
+        }
+        printf("%d\n", flag);
     }
     return 0;
 }
